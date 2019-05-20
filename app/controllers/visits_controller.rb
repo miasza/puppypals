@@ -31,6 +31,7 @@ class VisitsController < ApplicationController
   end
 
   private
+
   def visit_params
     params.require(:visit).permit(:date)
   end
