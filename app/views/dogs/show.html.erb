@@ -1,32 +1,29 @@
-<div class="container">
+<%= image_tag "demo_dog_1.jpg", style:"height: 78vh; width: 100%; object-fit: cover; object-position: top; margin-bottom: 30px;" %>
 
+<div class="container bg-white px-5 py-3 d-flex justify-content-between">
+  <div class="dog-info flex-fill">
+    <h2>Meet <%= @dog.name %>,</h2>
+    <h4>a <%= @dog.age %> years old <%= @dog.breed %>!</h4>
+    <p>Location <%= @dog.address  %></p>
+    <br>
+    <p><%= @dog.description %></p>
+  </div>
 
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-  <div class="card-product-infos">
-    <h2><%= @dog.name %></h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+  <div class="visit-form w-150">
+    <% @visits.each do |visit| %>
+      <li><%= visit.date %> <%= link_to "Delete", visit_path(visit),
+          method: :delete,
+          data: { confirm: "Schade" } %>
+      </li>
+
+    <% end %>
+
+    <%= render 'visits/form' %>
+    <%= link_to "Delete", dog_path(@dog),
+        method: :delete,
+        data: { confirm: "Are you sure you want to remove this barkiful friend?" } %> |
+    <%= link_to "Back", dogs_path %>
   </div>
 </div>
 
 
-
-  <%= link_to "Delete", dog_path(@dog),
-      method: :delete,
-      data: { confirm: "Are you sure you want to remove this barkiful friend?" } %>
-  <% @visits.each do |visit| %>
-    <li><%= visit.date %> <%= link_to "Delete", visit_path(visit),
-        method: :delete,
-        data: { confirm: "Schade" } %>
-    </li>
-
-  <% end %>
-
-
-
-
-
-  <%= render 'visits/form' %>
-  <%= link_to "Back", dogs_path %>
-
-</div>
