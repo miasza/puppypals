@@ -15,7 +15,7 @@ class VisitsController < ApplicationController
     @visit = Visit.find(params[:id])
     @dog = @visit.dog
     @visit.destroy
-    redirect_to dog_path(@dog)
+    redirect_to playdates_path
   end
 
   private
