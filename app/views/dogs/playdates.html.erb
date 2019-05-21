@@ -1,0 +1,3 @@
+<% @visits.each do |visit| %>
+  <%= visit.date %> <%= @dogs.select { |dog| dog.id == visit.dog_id}[0].name %>
+<% end %>

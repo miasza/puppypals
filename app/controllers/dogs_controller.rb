@@ -17,6 +17,11 @@ class DogsController < ApplicationController
     end
   end
 
+  def playdates
+    @visits = Visit.where(user_id: current_user.id)
+    @dogs = Dog.all
+  end
+
   def show
     @visit = Visit.new
     @dog = Dog.find(params[:id])
