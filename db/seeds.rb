@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
-User.delete_all
 Dog.delete_all
+User.delete_all
 
 puts "Creating new users and dogs"
 
