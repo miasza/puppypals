@@ -1,8 +1,8 @@
 class VisitsController < ApplicationController
   def index
     @user = current_user
-    @visits = Visit.where(user_id: @user.id)
     @dog = Dog.find(params[:dog_id])
+    @visits = Visit.where(user_id: @user.id, dog_id: @dog.id)
   end
 
   def new
@@ -17,19 +17,21 @@ class VisitsController < ApplicationController
     @visit.user = @user
     @visit.dog = @dog
     if @visit.save
-      redirect_to @dog
+      redirect_to dog_visits_path(@dog)
     else
       render :new
     end
   end
 
   def destroy
-    @visit = Visit.find(visit_params)
+    @dog = Dog.find(params[:dog_id])
+    @visit = Visit.find(params[:id])
     @visit.destroy
-    redirect_to @dog
+    redirect_to dog_visits_path(@dog)
   end
 
   private
+
   def visit_params
     params.require(:visit).permit(:date)
   end

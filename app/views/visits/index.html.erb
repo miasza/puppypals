@@ -1,3 +1,8 @@
-<% @visits.each do |visit| %>
-  <%= @visit.date %>
-<% end %>
+<ul>
+  <% @visits.each do |visit| %>
+    <li><%= visit.date %> <%= link_to "Delete booking", dog_visit_path(@dog, visit), method: :delete, data: { confirm: 'Are you sure?' } %> </li>
+  <% end %>
+</ul>
+
+<%= link_to "Book #{@dog.name}", new_dog_visit_path(@dog) %>
+<%= link_to "Back to all dogs", dogs_path %>
