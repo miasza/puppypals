@@ -1,6 +1,6 @@
 class Dog < ApplicationRecord
   belongs_to :user
-  has_many :visits
+  has_many :visits, dependent: :destroy
   has_many :users, through: :visits
   validates :name, presence: true
   validates :age, presence: true, numericality: { only_integer: true }

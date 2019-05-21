@@ -18,7 +18,9 @@ class DogsController < ApplicationController
   end
 
   def show
+    @visit = Visit.new
     @dog = Dog.find(params[:id])
+    @visits = @dog.visits
   end
 
   def destroy
