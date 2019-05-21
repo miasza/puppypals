@@ -22,3 +22,22 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
+#icon-white {
+  color: white;
+  font-size: 30px;
+}
+
+#search-form {
+  margin-top: 300px;
+}
+
+.link-white {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+    &:hover {
+      text-decoration: none;
+      color: gray;
+    }
+}

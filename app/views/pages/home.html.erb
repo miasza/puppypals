@@ -1,10 +1,24 @@
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);">
+  <div class= "d-flex justify-content-between my-4 mx-5 align-items-center">
+    <div id="icon-white">
+      <i class="fas fa-paw"></i>
+    </div>
+    <div>
+      <% if user_signed_in? %>
+        <%= link_to "Log Out", destroy_user_session_path, class: "link-white",
+          method: :delete,
+          data: { confirm: "Goodbye" } %>
+      <% else %>
+         <%= link_to "Login", new_user_session_path, class: "link-white" %>
+         <%= link_to "Sign Up", new_user_registration_path, class: "link-white" %>
+      <% end %>
+    </div>
+  </div>
   <div class="container">
     <h1>Puppy Pals brings <strong>dogs</strong> to <strong>dog people</strong>!</h1>
     <p>Hang out with furry friends in your neighborhood.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
 
+    <%= render 'form' %>
   </div>
 </div>
 
