@@ -5,8 +5,8 @@
     <% @dogs.each do |dog| %>
       <div class="col-md-6 col-lg-4 col-xl-3">
         <div class="card-trip">
-          <% if dog.photo %>
-            <%= image_tag dog.photo %>
+          <% if dog.photo.file %>
+            <%= cl_image_tag dog.photo %>
           <% else %>
             <%= cl_image_tag "DogProfile_wsjast" %>
           <% end %>
