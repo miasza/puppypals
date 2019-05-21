@@ -1,12 +1,9 @@
-
-<div class="container">
-  <h1>All Puppies</h1>
-  <ul class="list-unstyled">
-  <% @dogs.each do |dog| %>
-    <li><%= link_to dog.name, dog_path(dog) %></li>
-  <% end %>
-  </ul>
-  <div>
-    <%= link_to "+ New Pupper", new_dog_path %>
+  <div class="container">
+    <h1 style="text-align: center;">All Puppies</h1>
+    <br>
+        <%= render 'dog_card' %>
+    <div>
+      <%= link_to "+ New Pupper", new_dog_path, class:"btn btn-primary"%>
+    </div>
   </div>
-</div>
+
