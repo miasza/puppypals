@@ -19,9 +19,11 @@ puts "Creating new users and dogs"
   email = Faker::Internet.email
   password = Faker::Code.sin
 
-  User.create(email: email, password: password)
+  User.create!(email: email, password: password)
 
 end
+
+puts "Users created"
 
 #50 dogs for dog model
 50.times do
@@ -33,9 +35,9 @@ end
   price = rand(5..50)
 
   x = Dog.new(name: name, age: age, breed: breed, size: size, price: price)
-  x.user = User.find(rand(1..30))
+  x.user = User.order("RANDOM()").first
   x.save
 
 end
 
-puts "Database records created"
+puts "Dogs created"
