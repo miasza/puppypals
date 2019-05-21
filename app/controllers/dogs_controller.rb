@@ -1,14 +1,18 @@
 class DogsController < ApplicationController
+  before_action :set_dog, only: %i[show destroy]
+
   def index
-    @dogs = Dog.all
+    @dogs = policy_scope(Dog)
   end
 
   def new
     @dog = Dog.new
+    authorize @dog
   end
 
   def create
     @dog = Dog.new(dog_params)
+    authorize @dog
     @dog.user = current_user
     if @dog.save
       redirect_to dogs_path
@@ -18,18 +22,16 @@ class DogsController < ApplicationController
   end
 
   def playdates
-    @visits = Visit.where(user_id: current_user.id)
+    @visits = policy_scope(Visit)
     @dogs = Dog.all
   end
 
   def show
     @visit = Visit.new
-    @dog = Dog.find(params[:id])
     @visits = @dog.visits
   end
 
   def destroy
-    @dog = Dog.find(params[:id])
     @dog.destroy
     redirect_to dogs_path
   end
@@ -38,5 +40,10 @@ class DogsController < ApplicationController
 
   def dog_params
     params.require(:dog).permit(:breed, :name, :size, :price, :photo, :age, :address)
+  end
+
+  def set_dog
+    @dog = Dog.find(params[:id])
+    authorize @dog
   end
 end

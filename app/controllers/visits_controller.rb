@@ -1,7 +1,10 @@
 class VisitsController < ApplicationController
+  before_action :set_visit, only: :destroy
+
   def create
     @dog = Dog.find(params[:dog_id])
     @visit = Visit.new(visit_params)
+    authorize @visit
     @visit.user = current_user
     @visit.dog = @dog
     if @visit.save
@@ -12,7 +15,6 @@ class VisitsController < ApplicationController
   end
 
   def destroy
-    @visit = Visit.find(params[:id])
     @dog = @visit.dog
     @visit.destroy
     redirect_to playdates_path
@@ -22,5 +24,10 @@ class VisitsController < ApplicationController
 
   def visit_params
     params.require(:visit).permit(:date)
+  end
+
+  def set_visit
+    @visit = Visit.find(params[:id])
+    authorize @visit
   end
 end

@@ -9,15 +9,16 @@
   </div>
 </div>
 
-
-
+<% if @dog.user_id == current_user.id %>
   <%= link_to "Delete", dog_path(@dog),
       method: :delete,
       data: { confirm: "Are you sure you want to remove this barkiful friend?" } %>
+  <% else %>
+  <br>
+  <% end %>
+
   <% @visits.each do |visit| %>
-    <li><%= visit.date %> <%= link_to "Delete", visit_path(visit),
-        method: :delete,
-        data: { confirm: "Schade" } %>
+    <li><%= visit.date %>
     </li>
 
   <% end %>
