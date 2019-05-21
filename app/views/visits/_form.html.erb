@@ -1,5 +1,5 @@
 <%= simple_form_for [@dog, @visit] do |f| %>
   <%= f.date_field :date, as: :date, min: Date.today %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class:"btn btn-primary" %>
 <% end %>
 
