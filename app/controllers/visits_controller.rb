@@ -5,17 +5,17 @@ class VisitsController < ApplicationController
     @visit.user = current_user
     @visit.dog = @dog
     if @visit.save
-      redirect_to dog_visits_path(@dog)
+      redirect_to dog_path(@dog)
     else
       render 'dogs/show'
     end
   end
 
   def destroy
-    @dog = Dog.find(params[:dog_id])
-    @visit = @dog.visit
+    @visit = Visit.find(params[:id])
+    @dog = @visit.dog
     @visit.destroy
-    redirect_to dog_visits_path(@dog)
+    redirect_to dog_path(@dog)
   end
 
   private

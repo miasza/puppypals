@@ -3,6 +3,14 @@
   <%= link_to "Delete", dog_path(@dog),
       method: :delete,
       data: { confirm: "Are you sure you want to remove this barkiful friend?" } %>
+  <% @visits.each do |visit| %>
+    <li><%= visit.date %> <%= link_to "Delete", visit_path(visit),
+        method: :delete,
+        data: { confirm: "Schade" } %>
+    </li>
+
+  <% end %>
   <%= render 'visits/form' %>
   <%= link_to "Back", dogs_path %>
+
 </div>
