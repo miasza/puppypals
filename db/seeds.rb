@@ -33,8 +33,9 @@ puts "Users created"
   breed = Faker::Creature::Dog.breed
   size = Faker::Creature::Dog.size
   price = rand(5..50)
+  address = Faker::Address.city
 
-  x = Dog.new(name: name, age: age, breed: breed, size: size, price: price)
+  x = Dog.new(name: name, age: age, breed: breed, size: size, price: price, address: address)
   x.user = User.order("RANDOM()").first
   x.save
 
