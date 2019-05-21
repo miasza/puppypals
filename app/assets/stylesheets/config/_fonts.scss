@@ -1,9 +1,9 @@
 // Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Kodchasan&display=swap|Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Poppins&display=swap");
 
 // Define fonts for body and headers
-$body-font: "Kodchasan", "Helvetica", "sans-serif";
-$headers-font: "Poppins", "Helvetica", "sans-serif";
+$headers-font: 'Poppins', "sans-serif";
+$body-font: "Open Sans Condensed", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
