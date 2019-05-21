@@ -1,0 +1,19 @@
+
+ <div class="container">
+   <div class="row">
+
+    <% @dogs.each do |dog| %>
+      <div class="col-md-6 col-lg-4 col-xl-3">
+        <div class="card-trip">
+          <%= image_tag dog.photo %>
+          <div class="card-trip-infos">
+              <h2><%= link_to dog.name, dog_path(dog) %>, <%= dog.breed %> 🐾</h2>
+            <h2 class="card-trip-pricing"><%= dog.price %>$</h2>
+          </div>
+        </div>
+      </div>
+
+     <% end %>
+
+   </div>
+ </div>
