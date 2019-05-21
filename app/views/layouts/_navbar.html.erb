@@ -27,7 +27,7 @@
         <%= link_to "Messages", "#", class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-        <% if current_user && current_user.photo.file %>
+        <% if current_user.photo.file %>
           <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
           <%= image_tag "blank-profile-picture-973460_960_720.png", class: "avatar dropdown-toggle"%>
