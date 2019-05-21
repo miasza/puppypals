@@ -7,5 +7,4 @@ class Dog < ApplicationRecord
   validates :size, presence: true
   validates :breed, presence: true
   validates :price, presence: true, numericality: { only_integer: true }
-  validates :photo, presence: true
 end
