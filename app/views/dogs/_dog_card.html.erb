@@ -2,7 +2,7 @@
    <div class="row">
 
     <% @dogs.each do |dog| %>
-      <div class="col-md-6 col-xl-4">
+      <div class="col-md-6 col-xl-4" style="position: static;">
         <div class="card-trip w-100 mb-4">
           <% if dog.photo.file %>
             <%= cl_image_tag dog.photo %>
