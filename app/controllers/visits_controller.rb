@@ -8,10 +8,12 @@ class VisitsController < ApplicationController
     @visit.user = current_user
     @visit.dog = @dog
     if @visit.save
+      flash[:notice] = "You created a visit with #{@dog.name} "
       redirect_to dog_path(@dog)
     else
       render 'dogs/show'
     end
+
   end
 
   def destroy
