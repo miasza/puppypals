@@ -12,19 +12,21 @@
     <p>Location <%= @dog.address.capitalize  %></p>
     <p><%= @dog.description %></p>
     <br>
-    <%= link_to "Back", dogs_path, class:"btn btn-primary" %>
+    <span class="mr-2">
+      <%= link_to "Back", dogs_path, class:"btn btn-primary" %>
 
+    </span>
+    <span class="mr-2">
+      <% if @dog.user_id == current_user.id %>
+        <%= link_to "Delete", dog_path(@dog),
+          method: :delete,
+          data: { confirm: "Are you sure you want to remove this barkiful friend?" }, class:"btn btn-primary" %>
+      <% else %>
+      <% end %>
+    </span>
   </div>
 
 
-
-<% if @dog.user_id == current_user.id %>
-  <%= link_to "Delete", dog_path(@dog),
-      method: :delete,
-      data: { confirm: "Are you sure you want to remove this barkiful friend?" } %>
-  <% else %>
-  <br>
- <% end %>
 
 <div class="form-wrapper" style="box-shadow: 0 0 7px #f4f4f4; border: 2px solid #f4f4f4; border-radius: 8px; width: 500px; margin:0 auto;">
 <div class="p-5">
@@ -36,14 +38,13 @@
   <p style="font-weight: bold;"><%= @dog.name%> is not available on:</p>
 
     <div class="visit-form w-150">
-      <% @visits.each do |visit| %>
-     <li><%= visit.date %> | <%= link_to "Delete", visit_path(visit),
-         method: :delete,
-         data: { confirm: "Are you sure? Your puppy pal will miss you!" } %>
-     </li>
-
-    <% end %>
-</div>
+      <ul class="list-unstyled">
+        <% @visits.each do |visit| %>
+             <li><%= visit.date %>
+             </li>
+        <% end %>
+      </ul>
+  </div>
   </div>
 </div>
 

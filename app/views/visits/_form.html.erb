@@ -1,5 +1,5 @@
 <%= simple_form_for [dog, visit] do |t| %>
 <%= t.input :date, as: :date %>
 
-<%= link_to "Visit me!", playdates_path, class: "btn btn-primary w-100" %>
+<%= t.submit "Visit Me!", class: "btn btn-primary w-100" %>
 <% end %>
