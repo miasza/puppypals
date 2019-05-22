@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :dogs, only: [:index, :new, :create, :show, :destroy] do
+    resources :dog_reviews, only: [:index, :new, :create, :edit, :update]
     resources :visits, only: :create
   end
 

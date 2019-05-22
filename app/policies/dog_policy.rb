@@ -1,9 +1,9 @@
 class DogPolicy < ApplicationPolicy
-  def create?
+  def show?
     true
   end
 
-  def show?
+  def create?
     true
   end
 

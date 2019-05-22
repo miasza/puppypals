@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_21_105639) do
+ActiveRecord::Schema.define(version: 2019_05_22_085009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dog_reviews", force: :cascade do |t|
+    t.bigint "dog_id"
+    t.bigint "user_id"
+    t.integer "rating"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_dog_reviews_on_dog_id"
+    t.index ["user_id"], name: "index_dog_reviews_on_user_id"
+  end
 
   create_table "dogs", force: :cascade do |t|
     t.string "name"
@@ -28,6 +39,17 @@ ActiveRecord::Schema.define(version: 2019_05_21_105639) do
     t.datetime "updated_at", null: false
     t.string "address"
     t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
+
+  create_table "renter_reviews", force: :cascade do |t|
+    t.bigint "dog_id"
+    t.bigint "user_id"
+    t.integer "rating"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_renter_reviews_on_dog_id"
+    t.index ["user_id"], name: "index_renter_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,7 +75,11 @@ ActiveRecord::Schema.define(version: 2019_05_21_105639) do
     t.index ["user_id"], name: "index_visits_on_user_id"
   end
 
+  add_foreign_key "dog_reviews", "dogs"
+  add_foreign_key "dog_reviews", "users"
   add_foreign_key "dogs", "users"
+  add_foreign_key "renter_reviews", "dogs"
+  add_foreign_key "renter_reviews", "users"
   add_foreign_key "visits", "dogs"
   add_foreign_key "visits", "users"
 end
