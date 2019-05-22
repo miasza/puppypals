@@ -11,11 +11,17 @@
 }
 
 .card-trip h2 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
   text-shadow: 0 0 0.3px rgba(0, 0, 0, 0.2);
 }
+
+#breed-small {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 0px;
+  }
 
 .card-trip p {
   font-size: 12px;
@@ -38,3 +44,7 @@
   width: 40px;
 }
 
+#popup {
+  box-shadow: none;
+  text-align: left;
+}

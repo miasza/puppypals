@@ -2,6 +2,15 @@
     <h1 class="m-3" style="text-align: center;">All Puppies</h1>
     <br>
         <%= render 'dog_card' %>
+
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
     <div class="mb-5">
       <br>
       <%= link_to "+ New Pupper", new_dog_path, class:"btn btn-primary"%>

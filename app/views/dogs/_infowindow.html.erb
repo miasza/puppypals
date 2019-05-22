@@ -1,9 +1,5 @@
-<div class="container">
-   <div class="row">
 
-    <% @dogs.each do |dog| %>
-      <div class="col-md-4 col-xl-3">
-        <div class="card-trip w-100 mb-4">
+        <div class="card-trip w-100 mb-4" id="popup">
           <% if dog.photo.file %>
             <%= cl_image_tag dog.photo %>
           <% else %>
@@ -17,9 +13,4 @@
             <h2 class="card-trip-pricing"><%= dog.price %>$</h2>
           </div>
         </div>
-      </div>
 
-     <% end %>
-
-   </div>
- </div>
