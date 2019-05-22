@@ -5,6 +5,7 @@
   top: 0;
   overflow: visible;
   z-index: 1000;
+  font-size: 20px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,4 +14,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.icon-black {
+  font-size: 30px;
 }
