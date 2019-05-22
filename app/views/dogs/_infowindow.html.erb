@@ -1,7 +1,6 @@
-
 <div class="card-trip w-100 mb-4" id="popup">
   <% if dog.photo.file %>
-    <%= cl_image_tag dog.photo %>
+    <%= cl_image_tag dog.photo, style:"width: 100%;" %>
   <% else %>
     <%= cl_image_tag "DogProfile_wsjast" %>
   <% end %>
