@@ -8,7 +8,7 @@
 
   <div class="dog-info flex-fill">
     <h2>Meet <%= @dog.name.capitalize %>,</h2>
-    <h4>a <%= @dog.age %> years old <%= @dog.breed.split.map(&:capitalize).join(' ') %>!</h4>
+    <h4>a <%= @dog.age %> year old <%= @dog.breed.split.map(&:capitalize).join(' ') %>!</h4>
     <p>Location <%= @dog.address.capitalize  %></p>
     <p><%= @dog.description %></p>
     <br>
