@@ -7,8 +7,10 @@ class VisitsController < ApplicationController
     authorize @visit
     @visit.user = current_user
     @visit.dog = @dog
+    @visits = @dog.visits
     if @visit.date < Date.today
-      render 'dogs/show', :alert => "The date entered has already passed. Please provide future date"
+      flash[:alert] = "The date entered has already passed. Please provide future date"
+      render 'dogs/show'
     else
       if @visit.save
       flash[:notice] = "You created a visit with #{@dog.name} "
