@@ -1,0 +1,22 @@
+.main-container {
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  position: static;
+}
+
+#map {
+  width: 100%;
+  height: 600px;
+  @include media-breakpoint-up(sm) {
+    height: 100vh;
+    width: 40%;
+  }
+}
+
+.cards {
+  flex-grow: 1;
+  position: sticky;
+  top: 56px;
+}

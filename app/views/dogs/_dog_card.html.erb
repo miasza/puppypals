@@ -4,11 +4,13 @@
     <% @dogs.each do |dog| %>
       <div class="col-md-6 col-xl-4" style="position: static;">
         <div class="card-trip w-100 mb-4">
-          <% if dog.photo.file %>
-            <%= cl_image_tag dog.photo %>
-          <% else %>
-            <%= cl_image_tag "DogProfile_wsjast" %>
-          <% end %>
+          <div class="card-trip-img">
+              <% if dog.photo.file %>
+                <%= cl_image_tag dog.photo %>
+              <% else %>
+                <%= cl_image_tag "DogProfile_wsjast" %>
+              <% end %>
+            </div>
           <div class="card-trip-infos">
               <div>
                 <h2><%= link_to dog.name.capitalize, dog_path(dog) %></h2>
