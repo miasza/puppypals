@@ -1,6 +1,3 @@
-<% @visits.each do |visit| %>
-  <%= visit.date %> <%= @dogs.select { |dog| dog.id == visit.dog_id}[0].name %> <%= link_to "Cancel visit", visit_path(visit), method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
-<% end %>
 <div class="container m-3 mx-auto">
   <h2><%= link_to "<", dogs_path %></h2>
   <h1 class="mb-5 text-center">Upcoming Playdates</h1>
