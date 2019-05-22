@@ -1,9 +1,13 @@
-<%= image_tag "demo_dog_1.jpg", style:"height: 78vh; width: 100%; object-fit: cover; object-position: top; margin-bottom: 30px;" %>
+<% if @dog.photo.file %>
+  <%= cl_image_tag @dog.photo, style:"height: 78vh; width: 100%; object-fit: cover; object-position: center; margin-bottom: 30px;" %>
+<% else %>
+  <%= cl_image_tag "demo_dog_1.jpg", style:"height: 78vh; width: 100%; object-fit: cover; object-position: top; margin-bottom: 30px;" %>
+<% end %>
 
 <div class="container bg-white px-5 py-3 d-flex justify-content-between">
   <div class="dog-info flex-fill">
     <h2>Meet <%= @dog.name.capitalize %>,</h2>
-    <h4>a <%= @dog.age %> years old <%= @dog.breed.capitalize %>!</h4>
+    <h4>a <%= @dog.age %> years old <%= @dog.breed.split.map(&:capitalize).join(' ') %>!</h4>
     <p>Location <%= @dog.address.capitalize  %></p>
     <p><%= @dog.description %></p>
   </div>
