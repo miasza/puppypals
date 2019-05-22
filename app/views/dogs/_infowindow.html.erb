@@ -1,0 +1,17 @@
+
+<div class="card-trip w-100 mb-4" id="popup">
+  <% if dog.photo.file %>
+    <%= cl_image_tag dog.photo %>
+  <% else %>
+    <%= cl_image_tag "DogProfile_wsjast" %>
+  <% end %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= link_to dog.name.capitalize, dog_path(dog) %></h2>
+      <h3 id="breed-small"><%= dog.breed.split.map(&:capitalize).join(' ') %></h3>
+    </div>
+    <h2 class="card-trip-pricing"><%= dog.price %>$
+    </h2>
+  </div>
+</div>
+
