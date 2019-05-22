@@ -1,6 +1,8 @@
 class Dog < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   belongs_to :user
+  has_many :dog_reviews
+  has_many :renter_reviews
   has_many :visits, dependent: :destroy
   has_many :users, through: :visits
   validates :name, presence: true
