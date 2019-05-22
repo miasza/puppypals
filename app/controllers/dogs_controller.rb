@@ -3,6 +3,13 @@ class DogsController < ApplicationController
 
   def index
     @dogs = policy_scope(Dog)
+    @markers = @dogs.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { dog: dog })
+      }
+    end
   end
 
   def new
