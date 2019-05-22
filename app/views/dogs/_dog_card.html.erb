@@ -1,17 +1,16 @@
-
- <div class="container">
+<div class="container">
    <div class="row">
 
     <% @dogs.each do |dog| %>
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card-trip">
-          <% if dog.photo %>
-            <%= image_tag dog.photo %>
+      <div class="col-md-4 col-xl-3">
+        <div class="card-trip w-100 mb-4">
+          <% if dog.photo.file %>
+            <%= cl_image_tag dog.photo %>
           <% else %>
             <%= cl_image_tag "DogProfile_wsjast" %>
           <% end %>
           <div class="card-trip-infos">
-              <h2><%= link_to dog.name, dog_path(dog) %>, <%= dog.breed %> 🐾</h2>
+              <h2><%= link_to dog.name.capitalize, dog_path(dog) %> | <%= dog.breed.split.map(&:capitalize).join(' ') %></h2>
             <h2 class="card-trip-pricing"><%= dog.price %>$</h2>
           </div>
         </div>

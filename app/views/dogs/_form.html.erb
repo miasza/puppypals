@@ -5,8 +5,8 @@
   <%= f.input :size  %>
   <%= f.input :price  %>
   <%= f.input :address %>
-  <%= f.input :description %>
+  <%= f.input :description, value: "" %>
   <%= f.input :photo  %>
-  <%= f.button :submit, class: "btn-primary" %>
-
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>

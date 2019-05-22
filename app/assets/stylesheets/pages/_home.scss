@@ -1,1 +1,18 @@
 // Specific CSS for your home-page
+.home-container {
+  position: absolute;
+}
+
+.home-container-items {
+  position: relative;
+  top: 80px;
+  left: 30px;
+}
+
+.home-container-items h1 {
+  color: white !important;
+
+}
+.btn-primary:hover {
+  color: white !important;
+}

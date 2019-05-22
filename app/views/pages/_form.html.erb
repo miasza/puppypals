@@ -1,11 +1,12 @@
-<div id="search-form">
+<div>
   <%= form_tag dogs_path, class: "form-inline", method: :get do %>
     <%= text_field_tag :date,
       params[:date],
       class: "form-control",
+        style:"color: rgba(206, 212, 218, 0.2); opacity: 0.7;",
       placeholder: "Find a friend"
     %>
-    <%= button_tag "find a friend", class: "form-control btn btn-light" %>
+    <%= button_tag "find a friend", class: "form-control btn btn-primary m-2" %>
   <% end %>
 
 </div>
