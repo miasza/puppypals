@@ -16,12 +16,6 @@
   <br>
   <% end %>
 
-  <% @visits.each do |visit| %>
-    <li><%= visit.date %>
-    </li>
-
-  <% end %>
-
   <div class="visit-form w-150">
     <% @visits.each do |visit| %>
       <li><%= visit.date %> <%= link_to "Delete", visit_path(visit),
