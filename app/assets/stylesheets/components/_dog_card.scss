@@ -4,18 +4,31 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-trip > img {
-  height: 200px;
+.card-trip-img > img {
+  // height: 100%;
   width: 100%;
   object-fit: cover;
+  object-position: center center;
+}
+
+.card-trip-img {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .card-trip h2 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
   text-shadow: 0 0 0.3px rgba(0, 0, 0, 0.2);
 }
+
+#breed-small {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 0px;
+  }
 
 .card-trip p {
   font-size: 12px;
@@ -28,7 +41,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  position: relative;
+  position: static;
 }
 
 .card-trip-infos .card-trip-user {
@@ -38,3 +51,7 @@
   width: 40px;
 }
 
+#popup {
+  box-shadow: none;
+  text-align: left;
+}

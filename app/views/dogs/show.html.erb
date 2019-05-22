@@ -1,10 +1,14 @@
-<%= image_tag "demo_dog_1.jpg", style:"height: 78vh; width: 100%; object-fit: cover; object-position: top; margin-bottom: 30px;" %>
+<% if @dog.photo.file %>
+  <%= cl_image_tag @dog.photo, style:"height: 78vh; width: 100%; object-fit: cover; object-position: center; margin-bottom: 30px;" %>
+<% else %>
+  <%= cl_image_tag "demo_dog_1.jpg", style:"height: 78vh; width: 100%; object-fit: cover; object-position: top; margin-bottom: 30px;" %>
+<% end %>
 
 <div class="container bg-white px-5 py-3 d-flex justify-content-between">
 
   <div class="dog-info flex-fill">
     <h2>Meet <%= @dog.name.capitalize %>,</h2>
-    <h4>a <%= @dog.age %> years old <%= @dog.breed.capitalize %>!</h4>
+    <h4>a <%= @dog.age %> years old <%= @dog.breed.split.map(&:capitalize).join(' ') %>!</h4>
     <p>Location <%= @dog.address.capitalize  %></p>
     <p><%= @dog.description %></p>
     <br>
@@ -22,11 +26,10 @@
   <br>
  <% end %>
 
-
-
 <div class="form-wrapper" style="box-shadow: 0 0 7px #f4f4f4; border: 2px solid #f4f4f4; border-radius: 8px; width: 500px; margin:0 auto;">
 <div class="p-5">
   <h2>Pick a date with <%= @dog.name.capitalize %></h2>
+
 
   <%= render "visits/form", dog: @dog, visit: @visit %>
   <br>

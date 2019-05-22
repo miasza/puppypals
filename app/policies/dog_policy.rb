@@ -1,9 +1,9 @@
 class DogPolicy < ApplicationPolicy
-  def create?
+  def show?
     true
   end
 
-  def show?
+  def create?
     true
   end
 
@@ -13,7 +13,7 @@ class DogPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where.not(latitude: nil, longitude: nil)
     end
   end
 end
