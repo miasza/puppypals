@@ -11,7 +11,7 @@
         <div>
           <p><em>with</em></p>
           <h2>
-            <%= @dogs.select { |dog| dog.id == visit.dog_id}[0].name %>
+            <%= link_to @dogs.select { |dog| dog.id == visit.dog_id}[0].name, @dogs.select { |dog| dog.id == visit.dog_id}[0] %>
 
           </h2>
           <p><em>on</em></p>
@@ -25,10 +25,13 @@
           </p>
           <p>
             <% if visit.date > Date.today %>
-              <%= link_to "Cancel Playdate", visit_path(visit), class: "btn btn-primary", style: "width: 120px", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
+              <%= link_to "Cancel Playdate", visit_path(visit), class: "btn btn-primary", style: "width: 120px", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog == visit.dog}[0].name}?" } %>
             <% end %>
-            <% if visit.date <= Date.today %>
-              <%= link_to "Add a review", new_dog_dog_review_path(visit.dog_id), class: "btn btn-primary", style: "width: 120px" %>
+            <% if visit.date < Date.today && !@dog_reviews.select { |review| review.user == current_user && review.dog == visit.dog }.present? %>
+              <%= link_to "Add a review", new_dog_dog_review_path(visit.dog), class: "btn btn-primary", style: "width: 120px" %>
+            <% end %>
+            <% if visit.date < Date.today && @dog_reviews.select { |review| review.user == current_user && review.dog == visit.dog }.present? %>
+              <%= link_to "Edit your review", edit_dog_dog_review_path(visit.dog, @dog_reviews.select { |review| review.user == current_user && review.dog == visit.dog }), class: "btn btn-primary", style: "width: 120px" %>
             <% end %>
           </p>
         </div>
@@ -49,7 +52,7 @@
         <div>
           <p><em>with</em></p>
           <h2>
-            <%= @dogs.select { |dog| dog.id == visit.dog_id}[0].name %>
+            <%= link_to @dogs.select { |dog| dog.id == visit.dog_id}[0].name, @dogs.select { |dog| dog.id == visit.dog_id}[0] %>
 
           </h2>
           <p><em>on</em></p>
