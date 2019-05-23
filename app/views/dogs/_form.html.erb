@@ -8,5 +8,8 @@
   <%= f.input :description, value: "" %>
   <%= f.input :photo  %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <div class="d-flex justify-content-between">
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= link_to "Back", mypals_path, class:"btn btn-primary" %></div>
+  </div>
   <% end %>

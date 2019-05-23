@@ -1,14 +1,14 @@
 <div class="main-container">
+
   <br>
   <div
   id="map"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-  <div class="column-flex">
-    <h1 class="m-3" style="text-align: center;">All Puppies</h1>
 
   <div class="cards">
+    <h1 class="m-3" style="text-align: center;">All Puppies</h1>
     <%= render 'dog_card' %>
     <div class="ml-4 mb-4">
       <br>
