@@ -2,8 +2,7 @@
   <%= form_tag dogs_path, class: "form-inline", method: :get do %>
     <%= text_field_tag :date,
       params[:date],
-      input_html: {class: "datepicker"},
-      class: "form-control",
+      class: "form-control datepicker",
         style:"color: dark-grey; opacity: 0.7; margin-right: 20px;",
 
       placeholder: "When?"
