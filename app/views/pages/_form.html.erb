@@ -2,11 +2,19 @@
   <%= form_tag dogs_path, class: "form-inline", method: :get do %>
     <%= text_field_tag :date,
       params[:date],
+      input_html: {class: "datepicker"},
       class: "form-control",
-        style:"color: rgba(206, 212, 218, 0.2); opacity: 0.7;",
-      placeholder: "Find a friend"
+        style:"color: dark-grey; opacity: 0.7; margin-right: 20px;",
+
+      placeholder: "When?"
     %>
-    <%= button_tag "find a friend", class: "form-control btn btn-primary m-2" %>
+    <%= text_field_tag :location,
+      params[:date],
+      class: "form-control",
+        style:"color: dark-grey; opacity: 0.7; margin-right: 20px;",
+      placeholder: "Where?"
+    %>
+    <%= button_tag "Search!", class: "form-control btn btn-primary" %>
   <% end %>
 
 </div>
