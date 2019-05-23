@@ -14,7 +14,6 @@
     <br>
     <span class="mr-2">
       <%= link_to "Back", dogs_path, class:"btn btn-primary" %>
-
     </span>
     <span class="mr-2">
       <% if @dog.user_id == current_user.id %>
@@ -25,26 +24,26 @@
       <% end %>
     </span>
   </div>
-
-
-
-<div class="form-wrapper" style="box-shadow: 0 0 7px #f4f4f4; border: 2px solid #f4f4f4; border-radius: 8px; width: 500px; margin:0 auto;">
-<div class="p-5">
-  <h2>Pick a date with <%= @dog.name.capitalize %></h2>
-
-
-  <%= render "visits/form", dog: @dog, visit: @visit %>
-  <br>
-  <p style="font-weight: bold;"><%= @dog.name%> is not available on:</p>
-
-    <div class="visit-form w-150">
-      <ul class="list-unstyled">
-        <% @visits.each do |visit| %>
-             <li><%= visit.date %>
-             </li>
-        <% end %>
-      </ul>
-  </div>
+  <div class="form-wrapper" style="box-shadow: 0 0 7px #f4f4f4; border: 2px solid #f4f4f4; border-radius: 8px; width: 500px; margin:0 auto;">
+    <div class="p-5">
+      <h2>Pick a date with <%= @dog.name.capitalize %></h2>
+      <%= render "visits/form", dog: @dog, visit: @visit %>
+      <br>
+      <p style="font-weight: bold;"><%= @dog.name%> is not available on:</p>
+        <div class="visit-form w-150">
+          <ul class="list-unstyled">
+            <% @visits.each do |visit| %>
+                 <li>
+                  <%= visit.date %>
+                 </li>
+            <% end %>
+          </ul>
+        </div>
+    </div>
   </div>
 </div>
-
+<br>
+<div class="container bg-white px-5 py-3 d-flex justify-content-between">
+blabla
+</div>
+<br>
