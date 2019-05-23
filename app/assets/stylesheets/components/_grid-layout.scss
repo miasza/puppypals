@@ -9,6 +9,8 @@
 #map {
   width: 100%;
   height: 600px;
+  position: sticky;
+  top: 62px;
   @include media-breakpoint-up(sm) {
     height: 100vh;
     width: 40%;
