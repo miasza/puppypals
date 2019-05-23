@@ -3,5 +3,6 @@
       <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
       <%= f.input :content %>
       <%= button_tag "Update Review", class:"btn btn-primary" %>
+      <%= link_to "Back to your Playdates", playdates_path, class:"btn btn-primary" %>
   <% end %>
 </div>

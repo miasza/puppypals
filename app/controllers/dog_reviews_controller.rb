@@ -17,7 +17,7 @@ class DogReviewsController < ApplicationController
     @review.user = current_user
     authorize @review
     if @review.save
-      redirect_to dog_dog_reviews_path(@dog)
+      redirect_to playdates_path
     else
       render :new
     end
