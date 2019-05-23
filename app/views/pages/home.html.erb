@@ -3,22 +3,15 @@
     <div id="icon-white">
       <i class="fas fa-paw"></i>
     </div>
-    <div>
-      <% if user_signed_in? %>
-        <%= link_to "Log Out", destroy_user_session_path, class: "link-white",
-          method: :delete,
-          data: { confirm: "Goodbye" } %>
-      <% else %>
-         <%= link_to "Login", new_user_session_path, class: "link-white" %>
-         <%= link_to "Sign Up", new_user_registration_path, class: "link-white" %>
-      <% end %>
+    <div class="list-unstyled">
+      <%= render 'layouts/dropdown' %>
     </div>
   </div>
   <div class="container home-container">
 
     <div class="home-container-items">
-      <h1 class="mb-2">Puppy Pals brings <strong>dogs</strong> to <strong>dog people</strong>!</h1>
-      <p>Hang out with furry friends in your neighborhood.</p>
+      <h1 class="mb-2 home-title">Puppy Pals brings <strong>dogs</strong> to <strong>dog people</strong></h1>
+      <h3>Hang out with furry friends in your neighborhood</h3>
     <%= render 'form' %>
     </div>
 
