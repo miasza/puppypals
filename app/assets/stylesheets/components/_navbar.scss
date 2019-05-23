@@ -6,6 +6,7 @@
   overflow: visible;
   z-index: 1000;
   font-size: 20px;
+  padding: 20px 30px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,4 +19,12 @@
 
 .icon-black {
   font-size: 30px;
+  color: $blue;
 }
+
+.nav-item p {
+  margin: 0;
+  padding-left: 15px;
+}
+
+
