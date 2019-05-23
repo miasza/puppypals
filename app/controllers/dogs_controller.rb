@@ -40,6 +40,7 @@ class DogsController < ApplicationController
   def playdates
     @visits = policy_scope(Visit)
     @dogs = Dog.all
+    @dog_reviews = DogReview.all
   end
 
   def show

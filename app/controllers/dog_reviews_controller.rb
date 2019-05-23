@@ -23,6 +23,24 @@ class DogReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @dog_review = DogReview.find(params[:id])
+    authorize @dog_review
+    @dog = Dog.find(params[:dog_id])
+  end
+
+  def update
+    @dog_review = DogReview.find(params[:id])
+    authorize @dog_review
+    if @dog_review.update(review_params)
+      redirect_to playdates_path
+      flash[:notice] = "Change successfully saved!"
+    else
+      render :edit
+      flash[:alert] = "Could not be saved. Please try again!"
+    end
+  end
+
   private
 
   def review_params
