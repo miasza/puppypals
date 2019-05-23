@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: [:index, :playdates], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [:index, :playdates], unless: :skip_pundit?
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   # def user_not_authorized
@@ -25,5 +27,10 @@ class ApplicationController < ActionController::Base
     # For additional fields in app/views/devise/registrations/new.html.erb
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:photo])
+  end
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to request.referrer
   end
 end
