@@ -3,6 +3,15 @@ class DogsController < ApplicationController
 
   def index
     @dogs = policy_scope(Dog)
+    if params[:location].present?
+      @dogs = @dogs.near(params[:location], 20)
+    end
+    if params[:date].present?
+      date = Date.parse(params[:date])
+      booked_dogs = @dogs.joins(:visits).where(visits: {date: date})
+      @dogs = @dogs - booked_dogs
+    end
+
     @markers = @dogs.map do |dog|
       {
         lat: dog.latitude,
