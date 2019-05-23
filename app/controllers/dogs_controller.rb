@@ -54,6 +54,12 @@ class DogsController < ApplicationController
     redirect_to dogs_path
   end
 
+  def mypals
+    @dogs = Dog.where(user: current_user)
+    authorize @dogs
+
+  end
+
   private
 
   def dog_params
