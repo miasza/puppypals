@@ -43,7 +43,24 @@
   </div>
 </div>
 <br>
-<div class="container bg-white px-5 py-3 d-flex justify-content-between">
-blabla
+<div class="container bg-white px-3 py-3 d-flex justify-content-between">
+  <% @dog.dog_reviews.each do |review| %>
+    <div class="review-box d-flex">
+      <div class="user-info">
+        <% if @users.select {|user| user.id == review.user_id}[0].photo? %>
+          <%= cl_image_tag @users.select {|user| user.id == review.user_id}[0].photo, class:"user-avatar" %>
+        <% else %>
+          <%= image_tag "blank-profile-picture-973460_960_720.png", class:"user-avatar" %>
+        <% end %>
+        <p class="mb-0 pt-2">
+          <%= @users.select {|user| user.id == review.user_id}[0].email %>
+        </p>
+      </div>
+      <div class="review-content-box">
+        Met with <%= @dog.name %> at <%= @dog.visits.select {|visit| visit.user_id == @users.select {|user| user.id == review.user_id}[0].id } %>
+      <%= raise %>
+      </div>
+    </div>
+  <% end %>
 </div>
 <br>

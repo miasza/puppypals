@@ -1,0 +1,30 @@
+.review-box {
+  border: 2px solid #f4f4f4;
+  box-shadow: 0 0 7px #f4f4f4;
+  width: 100%;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  height: 70px;
+}
+
+.user-info {
+  display: block;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.review-content-box {
+  border-left-style: solid;
+  border-left-color: grey;
+  border-left-width: 1px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+}
