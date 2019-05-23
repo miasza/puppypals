@@ -14,7 +14,7 @@ class VisitsController < ApplicationController
     else
       if @visit.save
       flash[:notice] = "You created a visit with #{@dog.name} "
-      redirect_to dog_path(@dog)
+      redirect_to playdates_path
       else
       render 'dogs/show'
       end

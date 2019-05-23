@@ -58,7 +58,6 @@
       </div>
       <div class="review-content-box">
         Met with <%= @dog.name.split.map(&:capitalize).join(' ') %> at <%= @dog.visits.select {|visit| visit.user_id == @users.select {|user| user.id == review.user_id}[0].id } %>
-      <%= raise %>
       </div>
     </div>
   <% end %>

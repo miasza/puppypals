@@ -21,11 +21,14 @@
         </div>
         <div>
           <p>
+            <%= link_to "Details", dog_path(visit.dog), class: "btn btn-primary", style: "width: 120px" %>
+          </p>
+          <p>
             <% if visit.date > Date.today %>
-              <%= link_to "Cancel Playdate", visit_path(visit), class: "btn btn-primary", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
-              <% end %>
+              <%= link_to "Cancel Playdate", visit_path(visit), class: "btn btn-primary", style: "width: 120px", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
+            <% end %>
             <% if visit.date <= Date.today %>
-              <%= link_to "Add a review", new_dog_dog_review_path(visit.dog_id), class: "btn btn-primary" %>
+              <%= link_to "Add a review", new_dog_dog_review_path(visit.dog_id), class: "btn btn-primary", style: "width: 120px" %>
             <% end %>
           </p>
         </div>
