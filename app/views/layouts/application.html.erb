@@ -18,8 +18,12 @@
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <% unless action_name == "home" %>
+      <%= render 'layouts/footer' %>
+    <% end %>
   </body>
 </html>
 
