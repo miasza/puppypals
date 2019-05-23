@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_23_105556) do
+ActiveRecord::Schema.define(version: 2019_05_23_154004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2019_05_23_105556) do
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "visit_id"
+    t.datetime "date"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["visit_id"], name: "index_messages_on_visit_id"
   end
 
   create_table "renter_reviews", force: :cascade do |t|
@@ -74,6 +83,7 @@ ActiveRecord::Schema.define(version: 2019_05_23_105556) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
+    t.string "status", default: "pending"
     t.index ["dog_id"], name: "index_visits_on_dog_id"
     t.index ["user_id"], name: "index_visits_on_user_id"
   end
@@ -81,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_05_23_105556) do
   add_foreign_key "dog_reviews", "dogs"
   add_foreign_key "dog_reviews", "users"
   add_foreign_key "dogs", "users"
+  add_foreign_key "messages", "visits"
   add_foreign_key "renter_reviews", "dogs"
   add_foreign_key "renter_reviews", "users"
   add_foreign_key "visits", "dogs"
