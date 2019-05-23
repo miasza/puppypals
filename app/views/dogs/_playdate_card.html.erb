@@ -1,6 +1,6 @@
 <h2>Past playdates</h2>
 <br>
-<% @visits.select {|visit| visit.date <= Date.today.to_s}.each do |visit| %>
+<% @visits.select {|visit| visit.date <= Date.today}.each do |visit| %>
     <div class="card-product">
       <% if visit.dog.photo.file %>
             <%= cl_image_tag visit.dog.photo %>
@@ -21,10 +21,10 @@
         </div>
         <div>
           <p>
-            <% if visit.date > Date.today.to_s %>
+            <% if visit.date > Date.today %>
               <%= link_to "Cancel Playdate", visit_path(visit), class: "btn btn-primary", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
               <% end %>
-            <% if visit.date <= Date.today.to_s %>
+            <% if visit.date <= Date.today %>
               <%= link_to "Add a review", new_dog_dog_review_path(visit.dog_id), class: "btn btn-primary" %>
             <% end %>
           </p>
@@ -35,7 +35,7 @@
 
 <h2>Upcoming playdates</h2>
 <br>
-<% @visits.select {|visit| visit.date > Date.today.to_s}.each do |visit| %>
+<% @visits.select {|visit| visit.date > Date.today}.each do |visit| %>
     <div class="card-product">
       <% if visit.dog.photo.file %>
             <%= cl_image_tag visit.dog.photo %>
@@ -56,10 +56,10 @@
         </div>
         <div>
           <p>
-            <% if visit.date > Date.today.to_s %>
+            <% if visit.date > Date.today %>
               <%= link_to "Cancel Playdate", visit_path(visit), class: "btn btn-primary", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
               <% end %>
-            <% if visit.date <= Date.today.to_s %>
+            <% if visit.date <= Date.today %>
               <%= link_to "Add a review", new_dog_dog_review_path(visit.dog_id), class: "btn btn-primary" %>
             <% end %>
           </p>

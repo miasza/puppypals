@@ -8,7 +8,7 @@ class VisitsController < ApplicationController
     @visit.user = current_user
     @visit.dog = @dog
     @visits = @dog.visits
-    if @visit.date < Date.today.to_s
+    if @visit.date < Date.today
       flash[:alert] = "The date entered has already passed. Please provide future date"
       render 'dogs/show'
     else
