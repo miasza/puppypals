@@ -20,7 +20,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <%= render 'layouts/dropdown' %>
+      <% if user_signed_in? %>
+        <li><%= render 'layouts/dropdown' %></li>
+      <% else %>
+        <li class="mx-3"><%= link_to "Login", new_user_session_path %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <% end %>
     </ul>
   </div>
 </div>
