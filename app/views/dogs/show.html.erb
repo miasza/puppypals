@@ -43,7 +43,8 @@
   </div>
 </div>
 <br>
-<div class="container bg-white px-3 py-3 d-flex justify-content-between">
+<div class="container bg-white px-5 py-3 justify-content-between">
+  <h4 class="mb-4">Check out what other users think about <%= @dog.name %></h4>
   <% @dog.dog_reviews.each do |review| %>
     <div class="review-box d-flex">
       <div class="user-info">
