@@ -13,7 +13,7 @@
             </div>
           <div class="card-trip-infos">
               <div>
-                <h2><%= link_to dog.name.capitalize, dog_path(dog) %></h2>
+                <h2><%= link_to dog.name.split.map(&:capitalize).join(' '), dog_path(dog) %></h2>
                 <h3 id="breed-small"><%= dog.breed.split.map(&:capitalize).join(' ') %></h3>
               </div>
             <h2 class="card-trip-pricing"><%= dog.price %>$</h2>
