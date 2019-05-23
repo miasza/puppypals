@@ -11,7 +11,7 @@
     <h4>a <%= @dog.age %> year old <%= @dog.breed.split.map(&:capitalize).join(' ') %>!</h4>
     <p>Location <%= @dog.address.split.map(&:capitalize).join(' ') %></p>
     <p>Size: <%= @dog.size %></p>
-    <p><em>Price: <%= @dog.price %>$</em></p>
+    <p>Price: <%= @dog.price %>$</p>
     <p><%= @dog.description %></p>
     <br>
     <span class="mr-2">
