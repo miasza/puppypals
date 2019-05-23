@@ -3,7 +3,7 @@
     <%= text_field_tag :date,
       params[:date],
       class: "form-control datepicker",
-        style:"color: dark-grey; opacity: 0.7;",
+        style:"color: dark-grey; opacity: 0.7; background-color: white;",
 
       placeholder: "When?"
     %>
@@ -14,7 +14,7 @@
         style:"color: dark-grey; opacity: 0.7; background-color: white",
       placeholder: "Where?"
     %>
-    <%= button_tag "Search!", class: "form-control btn btn-primary" %>
+    <%= button_tag "Search", class: "btn btn-primary btn-green" %>
   <% end %>
 
 </div>
