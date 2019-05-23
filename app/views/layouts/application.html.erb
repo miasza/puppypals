@@ -11,7 +11,7 @@
 
   </head>
   <body>
-    <% unless action_name == "home" %>
+    <% unless action_name == "home" || action_name == "index" %>
       <%= render 'layouts/navbar' %>
 
       <p class="alert"><%= alert %></p>
