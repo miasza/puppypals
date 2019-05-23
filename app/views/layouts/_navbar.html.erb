@@ -3,7 +3,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "#", class: "navbar-brand" do %>
+        <%= link_to root_path, class: "navbar-brand" do %>
           <i class="fas fa-paw icon-black"></i>
         <% end %>
       </li>
@@ -21,7 +21,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Home", root_path, class: "nav-link" %>
+        <% if  current_user%>
+          <p class="nav-link"> <%= current_user.username %></p>
+        <% end %>
       </li>
       <li class="nav-item">
         <%= link_to "Messages", "#", class: "nav-link" %>

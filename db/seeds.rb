@@ -18,10 +18,11 @@ puts "Creating new users and dogs"
 #30 users for user model
 30.times do
 
+  username = Faker::Name.unique.name
   email = Faker::Internet.email
   password = Faker::Code.sin
 
-  User.create!(email: email, password: password)
+  User.create!(username: username, email: email, password: password)
 
 end
 
