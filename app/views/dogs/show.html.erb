@@ -43,7 +43,12 @@
   </div>
 </div>
 <br>
-<div class="container bg-white px-3 py-3 d-flex justify-content-between">
+<div class="container bg-white px-5 py-3 justify-content-between">
+  <% if @dog.dog_reviews.present? %>
+    <h4 class="mb-4">Check out what other users think about <%= @dog.name %></h4>
+  <% else %>
+    <h4 class="mb-4">There are no reviews for <%= @dog.name %> yet</h4>
+  <% end %>
   <% @dog.dog_reviews.each do |review| %>
     <div class="review-box d-flex">
       <div class="user-info">
@@ -53,13 +58,25 @@
           <%= image_tag "blank-profile-picture-973460_960_720.png", class:"user-avatar" %>
         <% end %>
         <p class="mb-0 pt-2">
-          <%= @users.select {|user| user.id == review.user_id}[0].email %>
+          <%= @users.select {|user| user.id == review.user_id}[0].username %>
         </p>
       </div>
       <div class="review-content-box">
-        Met with <%= @dog.name.split.map(&:capitalize).join(' ') %> at <%= @dog.visits.select {|visit| visit.user_id == @users.select {|user| user.id == review.user_id}[0].id } %>
+        <div>
+          <% review.rating.times do %>
+            <i class="fas fa-heart"></i>
+          <% end %>
+          <% (5-review.rating).times do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+          - Met with <%= @dog.name.split.map(&:capitalize).join(' ') %> at <%= @dog.visits.select {|visit| visit.user_id == @users.select {|user| user.id == review.user_id}[0].id }[0].date.strftime("%a, %e %B %Y") %>
+        </div>
+        <div class="pt-2">
+          <%= review.content %>
+        </div>
       </div>
     </div>
   <% end %>
 </div>
 <br>
+
