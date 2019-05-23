@@ -1,4 +1,4 @@
-<div>
+<div class="landing_page_form">
   <%= form_tag dogs_path, class: "form-inline", method: :get do %>
     <%= text_field_tag :date,
       params[:date],
@@ -8,7 +8,8 @@
       placeholder: "When?"
     %>
     <%= text_field_tag :location,
-      params[:date],
+      params[:location],
+      id: 'dog_address',
       class: "form-control m-3",
         style:"color: dark-grey; opacity: 0.7; background-color: white",
       placeholder: "Where?"
