@@ -7,13 +7,18 @@ class VisitsController < ApplicationController
     authorize @visit
     @visit.user = current_user
     @visit.dog = @dog
-    if @visit.save
-      flash[:notice] = "You created a visit with #{@dog.name} "
-      redirect_to playdates_path
-    else
+    @visits = @dog.visits
+    if @visit.date < Date.today
+      flash[:alert] = "The date entered has already passed. Please provide future date"
       render 'dogs/show'
+    else
+      if @visit.save
+      flash[:notice] = "You created a visit with #{@dog.name} "
+      redirect_to dog_path(@dog)
+      else
+      render 'dogs/show'
+      end
     end
-
   end
 
   def destroy
