@@ -45,6 +45,7 @@ class DogsController < ApplicationController
   def show
     @visit = Visit.new
     @visits = @dog.visits
+    @users = User.all
   end
 
   def destroy
