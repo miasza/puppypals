@@ -1,5 +1,5 @@
-<div class="container">
-  <h1>Add a review to <%= @dog.name %></h1>
+<div class="container m-4 mx-auto">
+  <h1 class="text-center">Review your Playdate with <%= @dog.name %></h1>
+  <%= render 'dog_review_form' %>
 </div>
 
-<%= render 'dog_review_form' %>
