@@ -12,7 +12,8 @@
   top: 62px;
   @include media-breakpoint-up(sm) {
     position: sticky;
-    height: 80vh;
+    top: 83px;
+    height: 100vh;
     width: 40%;
   }
 }
