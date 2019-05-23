@@ -1,0 +1,28 @@
+.footer {
+  background: white;
+  height: 120px;
+  padding: 0px 50px;
+  color: $darkgray;
+  font-size: 18px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.footer-links a {
+  color: $blue;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 18px 16px;
+}
+
+.footer-links a:hover {
+  opacity: .5;
+}
+.footer .fa-heart {
+  color: $blue;
+}
