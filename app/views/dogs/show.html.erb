@@ -10,7 +10,7 @@
     <h2 class="mt-2">Meet <%= @dog.name.split.map(&:capitalize).join(' ') %>,</h2>
     <h4 class="mb-4">a <%= @dog.age %> year old <%= @dog.breed.split.map(&:capitalize).join(' ') %>!</h4>
     <div class="larger-p">
-      <p><i class="fas fa-dog mr-2"></i>  <%= @dog.name %> is a <%= @dog.size %> dog</p>
+      <p><i class="fas fa-dog mr-2"></i>  <%= @dog.name %> is a <%= @dog.size %> sized dog</p>
       <p><i class="fas fa-map-marker-alt mr-2"></i> <%= @dog.name %> lives at <%= @dog.address.split.map(&:capitalize).join(' ') %></p>
       <p><i class="fas fa-info-circle mr-2"></i><em> <%= @dog.name %> is <%= @dog.description %></em></p>
     </div>
