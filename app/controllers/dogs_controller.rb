@@ -47,7 +47,8 @@ class DogsController < ApplicationController
     @visit = Visit.new
     @visits = @dog.visits
     @users = User.all
-    average_rating
+    @dog = set_dog
+    average_rating if @dog.dog_reviews.present?
   end
 
   def destroy
