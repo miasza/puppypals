@@ -17,6 +17,19 @@
   color: white !important;
 }
 
+.delete-span {
+  margin-top: 14px;
+}
+
+#delete-button {
+  margin-top: 14px;
+}
+
+#delete-button:hover {
+  background: $red;
+}
+
+
 .landing_page_form {
 
   .algolia-places {

@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  before_action :set_dog, only: %i[show destroy]
+  before_action :set_dog, only: %i[show destroy edit update]
 
   def index
     @dogs = policy_scope(Dog)
@@ -47,6 +47,8 @@ class DogsController < ApplicationController
     @visit = Visit.new
     @visits = @dog.visits
     @users = User.all
+    @dog = set_dog
+    average_rating if @dog.dog_reviews.present?
   end
 
   def destroy
@@ -59,6 +61,18 @@ class DogsController < ApplicationController
     authorize @dogs
   end
 
+  def edit
+  end
+
+  def update
+    if @dog.update(dog_params)
+      redirect_to mypals_path
+    else
+      render :edit
+    end
+  end
+
+
   private
 
   def dog_params
@@ -68,5 +82,13 @@ class DogsController < ApplicationController
   def set_dog
     @dog = Dog.find(params[:id])
     authorize @dog
+  end
+
+  def average_rating
+    sum = 0
+    @dog.dog_reviews.each do |review|
+      sum += review.rating
+    end
+    @avg = sum / @dog.dog_reviews.size
   end
 end
