@@ -44,11 +44,9 @@
             </div>
           </div>
       <% end %>
-      <% else %>
-        <p>You have no pending booking requests</p>
-      <% end %>
+    <% end %>
   <% end %>
-  </div>
+</div>
 <br>
 <h2>Approved Booking Requests</h2>
 <div>
@@ -88,11 +86,9 @@
             </div>
           </div>
       <% end %>
-      <% else %>
-        <p>You have no approved booking requests</p>
-      <% end %>
-   <% end %>
-  </div>
+    <% end %>
+  <% end %>
+</div>
 <br>
 <h2>Declined Booking Requests</h2>
 <div>
@@ -123,7 +119,6 @@
                   <% else %>
                     <%= image_tag "default_dog.jpg", class: "avatar-small" %>
                   <% end %>
-
                 </div>
                 <h3><%= visit.user.username %></h3>
               </div>
@@ -132,8 +127,6 @@
             </div>
           </div>
       <% end %>
-      <% else %>
-      <p>You have no declined booking requests</p>
-      <% end %>
-   <% end %>
-  </div>
+    <% end %>
+  <% end %>
+</div>
