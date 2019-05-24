@@ -7,7 +7,7 @@
           <% if visit.dog.photo.file %>
                 <%= cl_image_tag visit.dog.photo %>
           <% else %>
-                <%= cl_image_tag "DogProfile_wsjast" %>
+                <%= image_tag "default_dog.jpg"%>
           <% end %>
           <div class="card-product-infos">
             <div>
@@ -19,12 +19,19 @@
                 <strong><%= visit.date.strftime("%a, %e %B %Y") %></strong>
               </p>
             </div>
+            <div class="text-center">
+              <p><em>with</em></p>
+              <div class="m-2">
+                <% if visit.user.photo.file %>
+                  <%= cl_image_tag visit.user.photo, class: "avatar-small"%>
+                <% else %>
+                  <%= image_tag "default_dog.jpg", class: "avatar-small" %>
+                <% end %>
+
+              </div>
+              <h3><%= visit.user.username %></h3>
+            </div>
             <div>
-              <% if visit.user.photo.file %>
-                <%= cl_image_tag visit.suer.photo %>
-              <% else %>
-                <%= cl_image_tag "DogProfile_wsjast" %>
-              <% end %>
               <p>
                 <% if visit.date > Date.today %>
                   <%= link_to "Cancel Booking", visit_path(visit), class: "btn btn-primary", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
