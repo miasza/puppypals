@@ -1,0 +1,27 @@
+<div class="card-white">
+  <h1>Edit <%= @dog.name.split.map(&:capitalize).join(' ') %></h1>
+  <%= simple_form_for(@dog) do |f| %>
+  <%= f.input :name  %>
+  <%= f.input :age  %>
+  <%= f.input :breed  %>
+  <%= f.input :size, collection: ["very small", "small", "medium", "big"]  %>
+  <%= f.input :price  %>
+  <%= f.input :address, placeholder: "Street, City, Country" %>
+  <%= f.input :description, value: "" %>
+  <%= f.input :photo  %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <div class="d-flex justify-content-between">
+    <div class="d-flex">
+      <%= f.button :submit, class: "btn btn-primary" %>
+      <div class="ml-2">
+        <% if @dog.user_id == current_user.id %>
+          <%= link_to "Delete", dog_path(@dog),
+            method: :delete,
+            data: { confirm: "Are you sure you want to remove this barkiful friend?" }, class:"btn btn-primary", id:"delete-button" %>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to "Back", mypals_path, class:"btn btn-primary" %></div>
+  </div>
+  <% end %>
+</div>
