@@ -57,7 +57,6 @@ class DogsController < ApplicationController
   def mypals
     @dogs = Dog.where(user: current_user)
     authorize @dogs
-
   end
 
   private
