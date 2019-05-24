@@ -7,9 +7,17 @@ class VisitPolicy < ApplicationPolicy
     record.user_id == user.id
   end
 
+  def accept?
+    Dog.where(id: record.dog_id, user: user).present?
+  end
+
+  def decline?
+    accept?
+  end
+
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 end

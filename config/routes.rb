@@ -10,8 +10,16 @@ Rails.application.routes.draw do
 
   get "mypals", to: "dogs#mypals"
 
-  resources :visits, only: :destroy
+  resources :visits, only: [:destroy, :accept]
 
+  resources :visits do
+    get "accept", to: "visits#accept"
+    patch "accept", to: "visits#accept"
+    put "accept", to: "visits#accept"
+    get "decline", to: "visits#decline"
+    patch "decline", to: "visits#decline"
+    put "decline", to: "visits#decline"
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

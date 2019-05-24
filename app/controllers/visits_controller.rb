@@ -13,7 +13,7 @@ class VisitsController < ApplicationController
       render 'dogs/show'
     else
       if @visit.save
-      flash[:notice] = "You created a visit with #{@dog.name} "
+      flash[:notice] = "Your request to book #{@dog.name} has been received. Check your playdates to see once the owner accepts your request"
       redirect_to playdates_path
       else
       render 'dogs/show'
@@ -27,10 +27,34 @@ class VisitsController < ApplicationController
     redirect_to playdates_path
   end
 
+  def accept
+    @dogs = Dog.where(user: current_user)
+    @visit = Visit.find(params[:visit_id])
+    authorize @visit
+    if @visit.update(status: "approved")
+      flash[:notice] = "You've approved the booking request"
+      redirect_to mypals_path
+    else
+      render 'dogs/mypals'
+    end
+  end
+
+  def decline
+    @dogs = Dog.where(user: current_user)
+    @visit = Visit.find(params[:visit_id])
+    authorize @visit
+    if @visit.update(status: "declined")
+      flash[:notice] = "You've declined the booking request"
+      redirect_to mypals_path
+    else
+      render 'dogs/mypals'
+    end
+  end
+
   private
 
   def visit_params
-    params.require(:visit).permit(:date)
+    params.require(:visit).permit(:date, :status)
   end
 
   def set_visit
