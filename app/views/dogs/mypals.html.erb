@@ -1,9 +1,21 @@
 <div class="container m-3 mx-auto">
   <div class="d-flex justify-content-between">
     <h2><%= link_to "<", dogs_path %></h2>
-    <div><%= link_to "+ New Pupper", new_dog_path, class:"btn btn-primary", style: "width: 120px"%></div>
   </div>
-  <h1 class="mb-5 text-center">My Pals</h1>
-    <%= render 'mypals_card'%>
+  <div class="d-flex justify-content-around">
+    <a href="#" id="pals"><h3 class="mb-5">My Pals</h3></a>
+    <a href="#" id="bookings"><h3 class="mb-5">Pal Bookings</h3></a>
+
+  </div>
+   <div class="mypals-content">
+    <div class="active" id="pals-list">
+      <%= link_to "+ New Pupper", new_dog_path, class:"btn btn-primary", style: "width: 120px"%>
+      <%= render 'mypals_card'%>
+    </div>
+    <div class="hidden" id="bookings-list">
+    <%= render 'bookings' %>
+    </div>
+  </div>
 </div>
+
 
