@@ -24,7 +24,7 @@
 
     <div class="px-5 pb-5 pt-4">
       <div class="border-bottom pb-2 d-flex justify-content-between"><h3>$<%= @dog.price %></h3> per day</div>
-      <h2 class="mb-4 pt-3">Play with <%= @dog.name.split.map(&:capitalize).join(' ') %></h2>
+      <h2 class="pt-3">Play with <%= @dog.name.split.map(&:capitalize).join(' ') %></h2>
       <% if @dog.dog_reviews.present? %>
         <p><% @avg.times do %>
           <i class="fas fa-heart"></i>
