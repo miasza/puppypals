@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  before_action :set_dog, only: %i[show destroy]
+  before_action :set_dog, only: %i[show destroy edit update]
 
   def index
     @dogs = policy_scope(Dog)
@@ -60,6 +60,18 @@ class DogsController < ApplicationController
     @dogs = Dog.where(user: current_user)
     authorize @dogs
   end
+
+  def edit
+  end
+
+  def update
+    if @dog.update(dog_params)
+      redirect_to mypals_path
+    else
+      render :edit
+    end
+  end
+
 
   private
 

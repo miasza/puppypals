@@ -6,8 +6,6 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
 };
 
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
@@ -27,7 +25,6 @@ const initMapbox = () => {
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
-  map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
   }
 };
 

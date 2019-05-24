@@ -13,16 +13,25 @@
             </div>
           <div class="card-trip-infos">
               <div>
-                <h2><%= link_to dog.name.split.map(&:capitalize).join(' '), dog_path(dog) %>
+                <h2><%= link_to dog.name.split.map(&:capitalize).join(' '), dog_path(dog) %></h2>
+
                   <% if dog.dog_reviews.present? %>
-                    <p><% @avg.times do %>
-                      <i class="fas fa-heart"></i>
+                    <% sum = 0 %>
+                    <% dog.dog_reviews.each do |review| %>
+                      <% sum += review.rating %>
+                    <% end %>
+                    <% @avg = sum / dog.dog_reviews.size %>
+                    <p>
+                      <% @avg.times do %>
+                        <i class="fas fa-heart"></i>
+                        <% end %>
+                      <% (5-@avg).times do %>
+                        <i class="far fa-heart"></i>
                       <% end %>
-                    <% (5-@avg).times do %>
-                      <i class="far fa-heart"></i>
-                    <% end %></p>
+                    </p>
+                  <% else %>
+                    <p style="color: transparent;">x</p>
                   <% end %>
-                </h2>
 
                 <h3 id="breed-small"><%= dog.breed.split.map(&:capitalize).join(' ') %></h3>
               </div>
