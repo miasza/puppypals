@@ -7,14 +7,15 @@
 <div class="container bg-white px-5 py-3 d-flex justify-content-between">
 
   <div class="dog-info flex-fill">
-    <h2>Meet <%= @dog.name.split.map(&:capitalize).join(' ') %>,</h2>
-    <h4>a <%= @dog.age %> year old <%= @dog.breed.split.map(&:capitalize).join(' ') %>!</h4>
-    <p>Location <%= @dog.address.split.map(&:capitalize).join(' ') %></p>
-    <p>Size: <%= @dog.size %></p>
-    <p>Price: <%= @dog.price %>$</p>
-    <p><%= @dog.description %></p>
+    <h2 class="mt-2">Meet <%= @dog.name.split.map(&:capitalize).join(' ') %>,</h2>
+    <h4 class="mb-4">a <%= @dog.age %> year old <%= @dog.breed.split.map(&:capitalize).join(' ') %>!</h4>
+    <div class="larger-p">
+      <p><i class="fas fa-dog mr-2"></i>  <%= @dog.name %> is a <%= @dog.size %> dog</p>
+      <p><i class="fas fa-map-marker-alt mr-2"></i> <%= @dog.name %> lives at <%= @dog.address.split.map(&:capitalize).join(' ') %></p>
+      <p><i class="fas fa-info-circle mr-2"></i><em> <%= @dog.name %> is <%= @dog.description %></em></p>
+    </div>
     <br>
-    <span class="mr-2">
+    <span class="mr-2 btn-green">
       <%= link_to "Back", dogs_path, class:"btn btn-primary" %>
     </span>
     <span class="mr-2">
@@ -27,8 +28,9 @@
     </span>
   </div>
   <div class="form-wrapper" style="box-shadow: 0 0 7px #f4f4f4; border: 2px solid #f4f4f4; border-radius: 8px; width: 500px; margin:0 auto;">
-    <div class="p-5">
-      <h2>Pick a date with <%= @dog.name.split.map(&:capitalize).join(' ') %></h2>
+    <div class="px-5 pb-5 pt-4">
+      <div class="border-bottom pb-2 d-flex justify-content-between"><h3>$<%= @dog.price %></h3> per day</div>
+      <h2 class="mb-4 pt-3">Play with <%= @dog.name.split.map(&:capitalize).join(' ') %></h2>
       <%= render "visits/form", dog: @dog, visit: @visit %>
       <br>
       <p style="font-weight: bold;"><%= @dog.name.split.map(&:capitalize).join(' ')%> is not available on:</p>
