@@ -11,6 +11,14 @@ class DogPolicy < ApplicationPolicy
     record.user_id == user.id
   end
 
+    def edit?
+    record.user_id == user.id
+  end
+
+    def update?
+    record.user_id == user.id
+  end
+
   def mypals?
     true
   end
