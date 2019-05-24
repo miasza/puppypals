@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "playdates", to: "dogs#playdates"
 
   get "mypals", to: "dogs#mypals"
+  get "mypals/accept", to: "visits#accept"
 
   resources :visits, only: :destroy
 

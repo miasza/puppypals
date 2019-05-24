@@ -27,6 +27,32 @@ class VisitsController < ApplicationController
     redirect_to playdates_path
   end
 
+  def accept
+    raise
+    @dogs = Dog.where(user: current_user)
+    @visit = Visit.where(user: current_user, dog: dog)
+    @visit.status = "accept"
+    if @visit.save
+      flash[:notice] = "You've accepted the booking request"
+      redirect_to mypals_path
+    else
+      render 'dogs/mypals'
+    end
+  end
+
+  def decline
+    raise
+    @dogs = Dog.where(user: current_user)
+    @visit = Visit.where(user: current_user, dog: dog)
+    @visit.status = "declined"
+    if @visit.save
+      flash[:notice] = "You've declined the booking request"
+      redirect_to mypals_path
+    else
+      render 'dogs/mypals'
+    end
+  end
+
   private
 
   def visit_params
