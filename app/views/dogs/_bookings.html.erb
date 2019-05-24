@@ -20,6 +20,11 @@
               </p>
             </div>
             <div>
+              <% if visit.user.photo.file %>
+                <%= cl_image_tag visit.suer.photo %>
+              <% else %>
+                <%= cl_image_tag "DogProfile_wsjast" %>
+              <% end %>
               <p>
                 <% if visit.date > Date.today %>
                   <%= link_to "Cancel Booking", visit_path(visit), class: "btn btn-primary", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
