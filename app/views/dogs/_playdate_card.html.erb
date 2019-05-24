@@ -42,36 +42,117 @@
 <h2>Upcoming playdates</h2>
 <br>
 <% @visits.select {|visit| visit.date > Date.today}.each do |visit| %>
-    <div class="card-product">
-      <% if visit.dog.photo.file %>
-            <%= cl_image_tag visit.dog.photo %>
-      <% else %>
-            <%= cl_image_tag "DogProfile_wsjast" %>
-      <% end %>
-      <div class="card-product-infos">
-        <div>
-          <p><em>with</em></p>
-          <h2>
-            <%= link_to @dogs.select { |dog| dog.id == visit.dog_id}[0].name, @dogs.select { |dog| dog.id == visit.dog_id}[0] %>
+    <% if visit.status == "pending" %>
+      <div class="pending card-product">
+        <% if visit.dog.photo.file %>
+              <%= cl_image_tag visit.dog.photo %>
+        <% else %>
+              <%= cl_image_tag "DogProfile_wsjast" %>
+        <% end %>
+        <div class="card-product-infos">
+          <div>
+            <p><em>with</em></p>
+            <h2>
+              <%= link_to @dogs.select { |dog| dog.id == visit.dog_id}[0].name, @dogs.select { |dog| dog.id == visit.dog_id}[0] %>
 
-          </h2>
-          <p><em>on</em></p>
-          <p>
-            <strong><%= visit.date.strftime("%a, %e %B %Y") %></strong>
-          </p>
-        </div>
-        <div>
-          <p>
-            <% if visit.date > Date.today %>
-              <%= link_to "Cancel Playdate", visit_path(visit), class: "btn btn-primary", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
+            </h2>
+            <p><em>on</em></p>
+            <p>
+              <strong><%= visit.date.strftime("%a, %e %B %Y") %></strong>
+            </p>
+          </div>
+          <div>
+            <div class="status-box">
+              <%= image_tag("Orange_question.svg.png") %>
+              <p><strong>Pending</strong></p>
+            </div>
+            <br>
+            <p>
+              <% if visit.date > Date.today %>
+                <%= link_to "Cancel Playdate", visit_path(visit), class: "btn btn-primary btn-height-width", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
+                <% end %>
+              <% if visit.date <= Date.today %>
+                <%= link_to "Add a review", new_dog_dog_review_path(visit.dog_id), class: "btn btn-primary" %>
               <% end %>
-            <% if visit.date <= Date.today %>
-              <%= link_to "Add a review", new_dog_dog_review_path(visit.dog_id), class: "btn btn-primary" %>
-            <% end %>
-          </p>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
+    <% if visit.status == "approved" %>
+      <div class="approved card-product">
+        <% if visit.dog.photo.file %>
+              <%= cl_image_tag visit.dog.photo %>
+        <% else %>
+              <%= cl_image_tag "DogProfile_wsjast" %>
+        <% end %>
+        <div class="card-product-infos">
+          <div>
+            <p><em>with</em></p>
+            <h2>
+              <%= link_to @dogs.select { |dog| dog.id == visit.dog_id}[0].name, @dogs.select { |dog| dog.id == visit.dog_id}[0] %>
+
+            </h2>
+            <p><em>on</em></p>
+            <p>
+              <strong><%= visit.date.strftime("%a, %e %B %Y") %></strong>
+            </p>
+          </div>
+          <div>
+            <div class="status-box">
+              <%= image_tag("Grüner_Haken_01.png") %>
+              <p><strong>Approved </strong></p>
+            </div>
+            <br>
+            <p>
+              <% if visit.date > Date.today %>
+                <%= link_to "Cancel Playdate", visit_path(visit), class: "btn btn-primary btn-height-width", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
+                <% end %>
+              <% if visit.date <= Date.today %>
+                <%= link_to "Add a review", new_dog_dog_review_path(visit.dog_id), class: "btn btn-primary" %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% if visit.status == "declined" %>
+      <div class="declined card-product">
+        <% if visit.dog.photo.file %>
+              <%= cl_image_tag visit.dog.photo %>
+        <% else %>
+              <%= cl_image_tag "DogProfile_wsjast" %>
+        <% end %>
+        <div class="card-product-infos">
+          <div>
+            <p><em>with</em></p>
+            <h2>
+              <%= link_to @dogs.select { |dog| dog.id == visit.dog_id}[0].name, @dogs.select { |dog| dog.id == visit.dog_id}[0] %>
+
+            </h2>
+            <p><em>on</em></p>
+            <p>
+              <strong><%= visit.date.strftime("%a, %e %B %Y") %></strong>
+            </p>
+          </div>
+          <div>
+            <div class="status-box">
+              <%= image_tag("Declined.png") %>
+              <p><strong>Declined </strong></p>
+            </div>
+            <br>
+            <p>
+              <% if visit.date > Date.today %>
+                <%= link_to "Cancel Playdate", visit_path(visit), class: "btn btn-primary btn-height-width", method: :delete, data: { confirm: "Sure you don't wanna hang out with #{@dogs.select { |dog| dog.id == visit.dog_id}[0].name}?" } %>
+                <% end %>
+              <% if visit.date <= Date.today %>
+                <%= link_to "Add a review", new_dog_dog_review_path(visit.dog_id), class: "btn btn-primary" %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
   <br>
   <br>

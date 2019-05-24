@@ -13,7 +13,7 @@ class VisitsController < ApplicationController
       render 'dogs/show'
     else
       if @visit.save
-      flash[:notice] = "You created a visit with #{@dog.name} "
+      flash[:notice] = "Your request to book #{@dog.name} has been received. Check your playdates to see once the owner accepts your request"
       redirect_to playdates_path
       else
       render 'dogs/show'

@@ -36,3 +36,40 @@
   align-items: center;
   margin: 14px;
 }
+
+.pending {
+  box-shadow: 0 0 10px rgba(243,118,41,0.3);
+}
+
+.approved {
+  box-shadow: 0 0 10px rgba(98,200,41,0.3);
+}
+
+.declined {
+  box-shadow: 0 0 10px rgba(236,66,34,0.3);
+}
+
+.btn-height-width {
+  width: 120px;
+  height: 35px;
+}
+
+.pending-status-box {
+  background-color: #F37629;
+  border-color: #F37629;
+}
+
+.approved-status-box {
+  background-color: rgb(98,200,41);
+  border-color: rgb(98,200,41);
+}
+
+.card-product-infos img {
+  height: 20px;
+  width: 20px;
+}
+
+.status-box {
+  text-align: right;
+  align-items: right;
+}
