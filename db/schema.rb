@@ -43,15 +43,6 @@ ActiveRecord::Schema.define(version: 2019_05_23_154004) do
     t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.bigint "visit_id"
-    t.datetime "date"
-    t.string "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["visit_id"], name: "index_messages_on_visit_id"
-  end
-
   create_table "renter_reviews", force: :cascade do |t|
     t.bigint "dog_id"
     t.bigint "user_id"
@@ -91,7 +82,6 @@ ActiveRecord::Schema.define(version: 2019_05_23_154004) do
   add_foreign_key "dog_reviews", "dogs"
   add_foreign_key "dog_reviews", "users"
   add_foreign_key "dogs", "users"
-  add_foreign_key "messages", "visits"
   add_foreign_key "renter_reviews", "dogs"
   add_foreign_key "renter_reviews", "users"
   add_foreign_key "visits", "dogs"
