@@ -29,8 +29,6 @@
   </div>
   <div class="form-wrapper" style="box-shadow: 0 0 7px #f4f4f4; border: 2px solid #f4f4f4; border-radius: 8px; width: 500px; margin:0 auto;">
 
-    <div class="p-5">
-      <h2>Pick a date with <%= @dog.name.split.map(&:capitalize).join(' ') %></h2>
     <div class="px-5 pb-5 pt-4">
       <div class="border-bottom pb-2 d-flex justify-content-between"><h3>$<%= @dog.price %></h3> per day</div>
       <h2 class="mb-4 pt-3">Play with <%= @dog.name.split.map(&:capitalize).join(' ') %></h2>
@@ -56,7 +54,6 @@
         </div>
     </div>
   </div>
-</div>
 </div>
 <br>
 <div class="container bg-white px-5 py-3 justify-content-between">
