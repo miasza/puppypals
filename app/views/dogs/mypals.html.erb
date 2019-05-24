@@ -1,18 +1,21 @@
 <div class="container m-3 mx-auto">
-  <div class="d-flex justify-content-between">
-    <h2><%= link_to "<", dogs_path %></h2>
+  <div class="d-flex justify-content-between border-bottom pb-3">
+    <%= link_to "All Dogs", dogs_path, class:"btn btn-primary", style: "width: 120px" %>
+    <%= link_to "+ Add New Dog", new_dog_path, class:"btn btn-primary", style: "width: 120px"%>
   </div>
-  <div class="d-flex justify-content-around">
-    <a href="#" id="pals"><h3 class="mb-5">My Pals</h3></a>
-    <a href="#" id="bookings"><h3 class="mb-5">Pal Bookings</h3></a>
-
+  <div class="d-flex justify-content-around pt-4">
+    <div class="tab tab-active" id="tab-1">
+      <a href="#" id="pals"><h3 class="mb-2">My Pals</h3></a>
+    </div>
+    <div class="tab inactive" id="tab-2">
+      <a href="#" id="bookings"><h3 class="mb-2">Pal Bookings</h3></a>
+    </div>
   </div>
    <div class="mypals-content">
     <div class="active" id="pals-list">
-      <%= link_to "+ New Pupper", new_dog_path, class:"btn btn-primary", style: "width: 120px"%>
       <%= render 'mypals_card'%>
     </div>
-    <div class="hidden" id="bookings-list">
+    <div class="hidden mt-4 pt-1" id="bookings-list">
     <%= render 'bookings' %>
     </div>
   </div>
