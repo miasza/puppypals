@@ -8,7 +8,7 @@ class VisitPolicy < ApplicationPolicy
   end
 
   def accept?
-    raise
+    Dog.where(id: record.dog_id, user: user).present?
   end
 
   def decline?

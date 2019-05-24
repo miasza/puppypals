@@ -28,12 +28,11 @@ class VisitsController < ApplicationController
   end
 
   def accept
-    raise
     @dogs = Dog.where(user: current_user)
-    @visit = Visit.where(user: current_user, dog: dog)
-    @visit.status = "accept"
-    if @visit.save
-      flash[:notice] = "You've accepted the booking request"
+    @visit = Visit.find(params[:visit_id])
+    authorize @visit
+    if @visit.update(status: "approved")
+      flash[:notice] = "You've approved the booking request"
       redirect_to mypals_path
     else
       render 'dogs/mypals'
@@ -41,11 +40,10 @@ class VisitsController < ApplicationController
   end
 
   def decline
-    raise
     @dogs = Dog.where(user: current_user)
-    @visit = Visit.where(user: current_user, dog: dog)
-    @visit.status = "declined"
-    if @visit.save
+    @visit = Visit.find(params[:visit_id])
+    authorize @visit
+    if @visit.update(status: "declined")
       flash[:notice] = "You've declined the booking request"
       redirect_to mypals_path
     else
@@ -56,7 +54,7 @@ class VisitsController < ApplicationController
   private
 
   def visit_params
-    params.require(:visit).permit(:date)
+    params.require(:visit).permit(:date, :status)
   end
 
   def set_visit

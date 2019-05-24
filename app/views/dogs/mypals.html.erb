@@ -10,14 +10,12 @@
    <div class="mypals-content">
     <div class="active" id="pals-list">
       <%= link_to "+ New Pupper", new_dog_path, class:"btn btn-primary", style: "width: 120px"%>
-      <%= render 'mypals_card'%>
+      <%= render 'dogs/mypals_card'%>
     </div>
     <div class="hidden" id="bookings-list">
-    <%= render 'bookings' %>
+    <%= render 'dogs/bookings' %>
     </div>
   </div>
 </div>
 
-<div class="action-btn">
-<%= link_to image_tag("Accept-icon.png"), mypals_accept_path %>
-</div>
+
