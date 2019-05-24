@@ -1,4 +1,3 @@
-
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -6,6 +5,9 @@
         <%= link_to root_path, class: "navbar-brand" do %>
           <i class="fas fa-paw icon-black"></i>
         <% end %>
+      </li>
+      <li class="nav-item">
+        <%= render 'layouts/form' %>
       </li>
     </ul>
   </div>
