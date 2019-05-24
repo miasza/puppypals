@@ -47,6 +47,8 @@ class DogsController < ApplicationController
     @visit = Visit.new
     @visits = @dog.visits
     @users = User.all
+    @dog = set_dog
+    average_rating if @dog.dog_reviews.present?
   end
 
   def destroy
@@ -58,7 +60,6 @@ class DogsController < ApplicationController
     @dogs = Dog.where(user: current_user)
     authorize @dogs
   end
-
 
   def edit
   end
@@ -81,5 +82,13 @@ class DogsController < ApplicationController
   def set_dog
     @dog = Dog.find(params[:id])
     authorize @dog
+  end
+
+  def average_rating
+    sum = 0
+    @dog.dog_reviews.each do |review|
+      sum += review.rating
+    end
+    @avg = sum / @dog.dog_reviews.size
   end
 end
