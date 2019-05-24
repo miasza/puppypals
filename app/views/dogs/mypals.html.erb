@@ -1,0 +1,9 @@
+<div class="container m-3 mx-auto">
+  <div class="d-flex justify-content-between">
+    <h2><%= link_to "<", dogs_path %></h2>
+    <div><%= link_to "+ New Pupper", new_dog_path, class:"btn btn-primary", style: "width: 120px"%></div>
+  </div>
+  <h1 class="mb-5 text-center">My Pals</h1>
+    <%= render 'mypals_card'%>
+</div>
+

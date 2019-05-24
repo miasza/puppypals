@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get "playdates", to: "dogs#playdates"
 
+  get "mypals", to: "dogs#mypals"
+
   resources :visits, only: :destroy
 
 

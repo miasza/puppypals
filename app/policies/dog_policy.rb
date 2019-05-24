@@ -11,6 +11,10 @@ class DogPolicy < ApplicationPolicy
     record.user_id == user.id
   end
 
+  def mypals?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.where.not(latitude: nil, longitude: nil)

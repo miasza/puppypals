@@ -40,6 +40,7 @@ class DogsController < ApplicationController
   def playdates
     @visits = policy_scope(Visit)
     @dogs = Dog.all
+    @dog_reviews = DogReview.all
   end
 
   def show
@@ -51,6 +52,12 @@ class DogsController < ApplicationController
   def destroy
     @dog.destroy
     redirect_to dogs_path
+  end
+
+  def mypals
+    @dogs = Dog.where(user: current_user)
+    authorize @dogs
+
   end
 
   private
