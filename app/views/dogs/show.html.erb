@@ -29,6 +29,12 @@
   <div class="form-wrapper" style="box-shadow: 0 0 7px #f4f4f4; border: 2px solid #f4f4f4; border-radius: 8px; width: 500px; margin:0 auto;">
     <div class="p-5">
       <h2>Pick a date with <%= @dog.name.split.map(&:capitalize).join(' ') %></h2>
+      <p><% @avg.times do %>
+        <i class="fas fa-heart"></i>
+        <% end %>
+      <% (5-@avg).times do %>
+        <i class="far fa-heart"></i>
+      <% end %></p>
       <%= render "visits/form", dog: @dog, visit: @visit %>
       <br>
       <p style="font-weight: bold;"><%= @dog.name.split.map(&:capitalize).join(' ')%> is not available on:</p>
