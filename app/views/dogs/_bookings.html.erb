@@ -1,4 +1,4 @@
-<h2>Pending Booking Requests</h2>
+<h3 class="mb-3">Pending Booking Requests</h3>
 <div>
   <% @dogs.each do |dog| %>
     <% if dog.visits.select {|visit| visit.date > Date.today && visit.status == "pending"}.present? %>
@@ -44,11 +44,13 @@
             </div>
           </div>
       <% end %>
+    <% else %>
+      <p>No pending requests</p>
     <% end %>
   <% end %>
 </div>
 <br>
-<h2>Approved Booking Requests</h2>
+<h3 class="mb-3">Approved Booking Requests</h3>
 <div>
   <% @dogs.each do |dog| %>
     <% if dog.visits.select {|visit| visit.date > Date.today && visit.status == "approved"}.present? %>
@@ -86,11 +88,13 @@
             </div>
           </div>
       <% end %>
+    <% else %>
+      <p>No approved requests</p>
     <% end %>
   <% end %>
 </div>
 <br>
-<h2>Declined Booking Requests</h2>
+<h3 class="mb-3">Declined Booking Requests</h3>
 <div>
   <% @dogs.each do |dog| %>
     <% if dog.visits.select {|visit| visit.date > Date.today && visit.status == "declined"}.present? %>
@@ -127,6 +131,8 @@
             </div>
           </div>
       <% end %>
+    <% else %>
+      <p>No declined requests</p>
     <% end %>
   <% end %>
 </div>
